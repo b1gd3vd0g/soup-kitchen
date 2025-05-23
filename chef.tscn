@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dew3xfc3qwsiy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fio5r"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"walk_f",
+"speed": 5.0
+}]
+
+[node name="Chef" type="CharacterBody2D"]
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fio5r")
+animation = &"walk_f"
