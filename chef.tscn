@@ -1,15 +1,79 @@
-[gd_scene load_steps=2 format=3 uid="uid://dew3xfc3qwsiy"]
+[gd_scene load_steps=11 format=3 uid="uid://dew3xfc3qwsiy"]
+
+[ext_resource type="Texture2D" uid="uid://i86kglducj77" path="res://sprites/chef.png" id="1_qigfl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mivr5"]
+atlas = ExtResource("1_qigfl")
+region = Rect2(0, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8bwy"]
+atlas = ExtResource("1_qigfl")
+region = Rect2(72, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cx38"]
+atlas = ExtResource("1_qigfl")
+region = Rect2(144, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0wnx"]
+atlas = ExtResource("1_qigfl")
+region = Rect2(216, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qdksg"]
+atlas = ExtResource("1_qigfl")
+region = Rect2(0, 72, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4weln"]
+atlas = ExtResource("1_qigfl")
+region = Rect2(72, 72, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_suw86"]
+atlas = ExtResource("1_qigfl")
+region = Rect2(144, 72, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgniv"]
+atlas = ExtResource("1_qigfl")
+region = Rect2(216, 72, 72, 72)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fio5r"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mivr5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8bwy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cx38")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0wnx")
+}],
 "loop": true,
-"name": &"walk_f",
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qdksg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4weln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_suw86")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgniv")
+}],
+"loop": true,
+"name": &"walk_up",
 "speed": 5.0
 }]
 
 [node name="Chef" type="CharacterBody2D"]
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(530, 374)
 sprite_frames = SubResource("SpriteFrames_fio5r")
-animation = &"walk_f"
+animation = &"walk_up"
