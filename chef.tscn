@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://dew3xfc3qwsiy"]
+[gd_scene load_steps=13 format=3 uid="uid://dew3xfc3qwsiy"]
 
+[ext_resource type="Script" uid="uid://cjq58o85ff386" path="res://chef.gd" id="1_mivr5"]
 [ext_resource type="Texture2D" uid="uid://i86kglducj77" path="res://sprites/chef.png" id="1_qigfl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mivr5"]
@@ -71,9 +72,16 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j8bwy"]
+size = Vector2(44, 72)
+
 [node name="Chef" type="CharacterBody2D"]
+script = ExtResource("1_mivr5")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(530, 374)
 sprite_frames = SubResource("SpriteFrames_fio5r")
 animation = &"walk_up"
+
+[node name="BoundingBox" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 0)
+shape = SubResource("RectangleShape2D_j8bwy")
