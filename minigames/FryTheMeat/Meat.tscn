@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cf6v5oilyliet"]
+
+[ext_resource type="Script" uid="uid://boxdya4rn7fk2" path="res://minigames/FryTheMeat/fryable.gd" id="1_dn3u3"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_617nc"]
+bounce = 0.21
+
+[node name="Meat" type="RigidBody2D"]
+collision_layer = 2
+mass = 42.72
+physics_material_override = SubResource("PhysicsMaterial_617nc")
+can_sleep = false
+continuous_cd = 2
+linear_damp = 3.561
+script = ExtResource("1_dn3u3")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+scale = Vector2(0.560606, 0.560606)
+color = Color(1, 0.498039, 0.498039, 1)
+polygon = PackedVector2Array(-37, -23, 19, -52, 25, -81, 58, -74, 61, -42, 81, -81, 110, -86, 96, -34, 40.7226, 1.23175, 5, 24, -59, 46, -66, 21, -39, 8, -107, 2, -95, -38)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.564306, 0.553082)
+polygon = PackedVector2Array(-37, -23, 19, -52, 25, -81, 58, -74, 61, -42, 81, -81, 110, -86, 96, -34, 40.7226, 1.23175, 5, 24, -59, 46, -66, 21, -39, 8, -107, 2, -95, -38)

@@ -1,0 +1,90 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqyqv5aoq32vg"]
+
+[ext_resource type="Script" uid="uid://cb5byvxs5743i" path="res://minigames/FryTheMeat/pan.gd" id="1_ujynf"]
+[ext_resource type="PackedScene" uid="uid://bm8nld716s07q" path="res://minigames/FryTheMeat/ProgressRoute.tscn" id="2_3pasn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ggqm2"]
+size = Vector2(580, 57)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2l5b8"]
+radius = 27.0185
+
+[node name="Pan" type="CharacterBody2D"]
+collision_mask = 0
+floor_stop_on_slope = false
+floor_block_on_wall = false
+script = ExtResource("1_ujynf")
+
+[node name="HandleTang" type="Polygon2D" parent="."]
+position = Vector2(-189, -12)
+scale = Vector2(0.659842, 0.488889)
+color = Color(0.529067, 0.529067, 0.529067, 1)
+polygon = PackedVector2Array(0, 0, 635, 0, 635, 45, 317.648, 45, 0, 45)
+
+[node name="HandleTang2" type="Polygon2D" parent="HandleTang"]
+position = Vector2(46.981, -8.18182)
+scale = Vector2(0.909308, 1.27273)
+color = Color(0.974634, 0.683112, 0.497525, 1)
+polygon = PackedVector2Array(0, 0, 635, 0, 635, 45, 317.648, 45, 0, 45)
+
+[node name="PanRim" type="Polygon2D" parent="HandleTang"]
+z_index = 3
+position = Vector2(-933.556, -18.4091)
+scale = Vector2(1.51551, 2.04545)
+color = Color(0.529067, 0.529067, 0.529067, 1)
+polygon = PackedVector2Array(0, 0, 635, 0, 635, 45, 0, 45)
+
+[node name="PanBase" type="Polygon2D" parent="HandleTang/PanRim"]
+show_behind_parent = true
+position = Vector2(8, 35)
+scale = Vector2(0.979225, 0.54662)
+color = Color(0.873298, 0.873298, 0.873298, 1)
+polygon = PackedVector2Array(0, 0, 635, 0, 635, 45, 0, 45)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-120, 0)
+polygon = PackedVector2Array(-686, -20, -644, -20, -644, 14, -109, 16, -108, -22, -54, -22, -54, 39, -684, 38)
+
+[node name="Hand" type="Polygon2D" parent="."]
+position = Vector2(-289, 94)
+color = Color(0.774941, 0.587804, 0.410459, 1)
+polygon = PackedVector2Array(156, -153, 234, -169, 309, -204, 453, -210, 522, -142, 506, -73, 533, -12, 470, 37, 408, 54, 377, 27, 321, 33, 282, -5, 290, -24, 237, -30, 227, -63, 201, -73, 184, -108, 148, -110)
+
+[node name="Forearm" type="Polygon2D" parent="Hand"]
+color = Color(0.776471, 0.588235, 0.411765, 1)
+polygon = PackedVector2Array(507, -143, 1754, -521, 1842, -413, 1815, -272, 500, 1)
+
+[node name="OilParticle" type="CPUParticles2D" parent="."]
+position = Vector2(-485, -10.5)
+emitting = false
+amount = 20
+lifetime = 0.5
+emission_shape = 3
+emission_rect_extents = Vector2(200, 1)
+gravity = Vector2(0, -980)
+scale_amount_max = 4.0
+color = Color(0.980392, 0.980392, 0.588235, 1)
+
+[node name="FryingArea" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FryingArea"]
+position = Vector2(-485, -10.5)
+shape = SubResource("RectangleShape2D_ggqm2")
+
+[node name="ProgressMarkerHitbox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProgressMarkerHitbox"]
+shape = SubResource("CircleShape2D_2l5b8")
+disabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ProgressRoute" parent="CanvasLayer" instance=ExtResource("2_3pasn")]
+position = Vector2(930, 362)
+
+[connection signal="body_entered" from="FryingArea" to="." method="_on_frying_area_body_entered"]
+[connection signal="body_exited" from="FryingArea" to="." method="_on_frying_area_body_exited"]
+[connection signal="progress_completed" from="CanvasLayer/ProgressRoute" to="." method="_on_progress_route_progress_completed"]

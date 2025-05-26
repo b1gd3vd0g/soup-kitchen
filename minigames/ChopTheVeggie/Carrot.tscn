@@ -1,0 +1,113 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfhxe5pl71duj"]
+
+[ext_resource type="Script" uid="uid://dmcmworvprl0h" path="res://src/choppable.gd" id="1_m5jti"]
+[ext_resource type="Script" uid="uid://bqqg5pklukjlp" path="res://src/destructable_hitbox.gd" id="2_fk427"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqs0m"]
+size = Vector2(28.5, 641)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xc1of"]
+radius = 18.2483
+
+[node name="Choppable" type="Node2D"]
+script = ExtResource("1_m5jti")
+
+[node name="Quarter1" type="Polygon2D" parent="."]
+position = Vector2(35, 532)
+scale = Vector2(0.963457, 0.87296)
+color = Color(0.905882, 0.501961, 0.0980392, 1)
+polygon = PackedVector2Array(5.60402, -2.24164, 220.799, -77.3355, 300.376, -78.4563, 300.376, -2.06488, 300.376, 75.0939, 227.523, 77.3355)
+
+[node name="Quarter2" type="Polygon2D" parent="Quarter1"]
+position = Vector2(0.414337, 2.8764)
+scale = Vector2(0.926057, 1.02206)
+color = Color(0.905882, 0.501961, 0.0980392, 1)
+polygon = PackedVector2Array(334, -82.9395, 583.939, -82.9395, 586.181, 77.3355, 331.758, 75.0939)
+
+[node name="Quarter3" type="Polygon2D" parent="Quarter1"]
+position = Vector2(0.414337, 2.8764)
+scale = Vector2(0.926057, 1.02206)
+color = Color(0.905882, 0.501961, 0.0980392, 1)
+polygon = PackedVector2Array(613.08, -79.5771, 850.691, -81.8188, 851.812, 77.3355, 766.63, 81.8188, 613.08, 80.6979)
+
+[node name="Quarter4" type="Polygon2D" parent="Quarter1"]
+position = Vector2(-160.914, 2.8764)
+scale = Vector2(1.09227, 1.02206)
+color = Color(0.905882, 0.501961, 0.0980392, 1)
+polygon = PackedVector2Array(883.194, -79.5771, 951.563, -79.5771, 970.617, -52.6778, 969.496, 70.6107, 886.557, 80.6979)
+
+[node name="Stem" type="Polygon2D" parent="Quarter1/Quarter4"]
+position = Vector2(830, -11.1208)
+scale = Vector2(2.86585, 1.88987)
+color = Color(0, 0.588258, 0.187006, 1)
+polygon = PackedVector2Array(51, -27, 90, -44, 118, -23, 60, -15, 117, 0, 131, 14, 100, 21, 61, -3, 85, 36, 66, 55, 49, 35, 49, 5)
+
+[node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(567, 515)
+script = ExtResource("2_fk427")
+
+[node name="ChopLine3" type="Line2D" parent="Hitbox"]
+position = Vector2(-365, -510)
+points = PackedVector2Array(367, 377, 367, 614)
+width = 31.53
+default_color = Color(1, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0.75, -187.5)
+shape = SubResource("RectangleShape2D_gqs0m")
+
+[node name="Destroybox" type="Area2D" parent="Hitbox"]
+position = Vector2(-110, -531)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox/Destroybox"]
+position = Vector2(113, 519)
+shape = SubResource("CircleShape2D_xc1of")
+
+[node name="Hitbox2" type="Area2D" parent="."]
+position = Vector2(324, 507)
+script = ExtResource("2_fk427")
+
+[node name="ChopLine3" type="Line2D" parent="Hitbox2"]
+position = Vector2(-367, -491)
+points = PackedVector2Array(367, 377, 367, 614)
+width = 31.53
+default_color = Color(1, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox2"]
+position = Vector2(-1.25, -168.5)
+shape = SubResource("RectangleShape2D_gqs0m")
+
+[node name="Destroybox" type="Area2D" parent="Hitbox2"]
+position = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox2/Destroybox"]
+position = Vector2(-2, 2)
+shape = SubResource("CircleShape2D_xc1of")
+
+[node name="Hitbox3" type="Area2D" parent="."]
+position = Vector2(807, 510)
+script = ExtResource("2_fk427")
+
+[node name="ChopLine3" type="Line2D" parent="Hitbox3"]
+position = Vector2(-369, -499)
+points = PackedVector2Array(367, 377, 367, 614)
+width = 31.53
+default_color = Color(1, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox3"]
+position = Vector2(-3.25, -176.5)
+shape = SubResource("RectangleShape2D_gqs0m")
+
+[node name="Destroybox" type="Area2D" parent="Hitbox3"]
+position = Vector2(3, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox3/Destroybox"]
+position = Vector2(-1, -3)
+shape = SubResource("CircleShape2D_xc1of")
+
+[connection signal="area_entered" from="Hitbox/Destroybox" to="." method="_on_destroybox_area_entered"]
+[connection signal="area_entered" from="Hitbox/Destroybox" to="Hitbox" method="_on_destroybox_area_entered"]
+[connection signal="area_entered" from="Hitbox2/Destroybox" to="." method="_on_destroybox_area_entered"]
+[connection signal="area_entered" from="Hitbox2/Destroybox" to="Hitbox2" method="_on_destroybox_area_entered"]
+[connection signal="area_entered" from="Hitbox3/Destroybox" to="." method="_on_destroybox_area_entered"]
+[connection signal="area_entered" from="Hitbox3/Destroybox" to="Hitbox3" method="_on_destroybox_area_entered"]
