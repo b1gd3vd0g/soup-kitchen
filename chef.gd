@@ -9,11 +9,11 @@ extends CharacterBody2D
 var screen_size
 
 func _ready():
-	screen_size = get_viewport().size()
+	screen_size = get_viewport().size
 	hide()
 
 func _process(delta: float) -> void:
-	# Move the chef according to user input.
+	# Move the chef according to user input:
 	var chef_velocity: Vector2 = Vector2.ZERO
 	if Input.is_action_pressed("move_up"):
 		chef_velocity.y -= 1
@@ -29,4 +29,3 @@ func _process(delta: float) -> void:
 		chef_velocity = chef_velocity.normalized() * speed
 	position += velocity * delta
 	position = position.clamp(Vector2.ZERO, screen_size)
-	
