@@ -82,9 +82,15 @@ disabled = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ProgressRoute" parent="CanvasLayer" instance=ExtResource("2_3pasn")]
+[node name="Horizontal" parent="CanvasLayer" instance=ExtResource("2_3pasn")]
 position = Vector2(930, 362)
+
+[node name="Vertical" parent="CanvasLayer" instance=ExtResource("2_3pasn")]
+position = Vector2(956.783, 353)
+rotation = 1.5708
+scale = Vector2(0.480001, 2.87829)
 
 [connection signal="body_entered" from="FryingArea" to="." method="_on_frying_area_body_entered"]
 [connection signal="body_exited" from="FryingArea" to="." method="_on_frying_area_body_exited"]
-[connection signal="progress_completed" from="CanvasLayer/ProgressRoute" to="." method="_on_progress_route_progress_completed"]
+[connection signal="progress_completed" from="CanvasLayer/Horizontal" to="." method="_on_horizontal_progress_completed"]
+[connection signal="progress_completed" from="CanvasLayer/Vertical" to="." method="_on_vertical_progress_completed"]

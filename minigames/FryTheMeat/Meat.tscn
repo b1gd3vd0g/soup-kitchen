@@ -3,15 +3,13 @@
 [ext_resource type="Script" uid="uid://boxdya4rn7fk2" path="res://minigames/FryTheMeat/fryable.gd" id="1_dn3u3"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_617nc"]
-bounce = 0.21
 
 [node name="Meat" type="RigidBody2D"]
 collision_layer = 2
-mass = 42.72
+mass = 286.511
 physics_material_override = SubResource("PhysicsMaterial_617nc")
 can_sleep = false
 continuous_cd = 2
-linear_damp = 3.561
 script = ExtResource("1_dn3u3")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]

@@ -2,9 +2,6 @@ extends Line2D
 
 signal progress_completed
 
-enum PROGRESSION_MODE{OSCILLATE, LOOP}
-
-@export var progression_mode: PROGRESSION_MODE
 var forward = true
 
 var progress_markers
@@ -32,3 +29,14 @@ func progress_marker_hit(id):
 			id = -1
 			progress_completed.emit()
 		progress_markers[clamp(id + 1, 0, num_markers - 1)].set_active()
+
+func set_active(is_active):
+	if !is_active:
+		#Disable all markers
+		for marker in progress_markers:
+			marker.set_inactive()
+		visible = false
+	else:
+		#Enable first marker
+		progress_markers[0].set_active()
+		visible = true
