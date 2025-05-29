@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cskwqr63a2jff"]
 
-[ext_resource type="Script" uid="uid://b1pijw8wbudia" path="res://soup_pot.gd" id="1_tt100"]
+[ext_resource type="Script" uid="uid://b1pijw8wbudia" path="res://minigames/CatchTheIngredients/soup_pot.gd" id="1_tt100"]
 
 [node name="SoupPot" type="CharacterBody2D"]
 script = ExtResource("1_tt100")
