@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://cskwqr63a2jff"]
+
+[ext_resource type="Script" uid="uid://b1pijw8wbudia" path="res://minigames/CatchTheIngredients/soup_pot.gd" id="1_tt100"]
+
+[node name="SoupPot" type="CharacterBody2D"]
+script = ExtResource("1_tt100")
+
+[node name="PotFront" type="Polygon2D" parent="."]
+position = Vector2(-643, -482)
+color = Color(0.716296, 0.716296, 0.716296, 1)
+polygon = PackedVector2Array(382, 357, 548, 383, 714, 383, 899, 357, 899, 612, 382, 612)
+
+[node name="Rim" type="Line2D" parent="PotFront"]
+points = PackedVector2Array(386, 355, 540, 346, 708, 346, 895, 355, 715, 385, 548, 383, 397, 360)
+default_color = Color(0.894922, 0.894922, 0.894922, 1)
+
+[node name="RightHand" type="Polygon2D" parent="."]
+position = Vector2(-643, -482)
+color = Color(0.989334, 0.656999, 0.516834, 1)
+polygon = PackedVector2Array(910, 408, 935, 362, 990, 365, 1013, 395, 1041, 399, 1056, 424, 1052, 448, 1059, 474, 1058, 498, 1059, 524, 1039, 544, 990, 563, 915, 547, 919, 474)
+
+[node name="Arm" type="Polygon2D" parent="RightHand"]
+position = Vector2(-411.477, 0)
+scale = Vector2(1.44726, 1)
+color = Color(0.988235, 0.658824, 0.517647, 1)
+polygon = PackedVector2Array(935, 432, 1868, 178, 1849, 499, 920, 534)
+
+[node name="RightHand2" type="Polygon2D" parent="."]
+position = Vector2(633, -489)
+rotation = -3.14159
+scale = Vector2(1, -1)
+color = Color(0.989334, 0.656999, 0.516834, 1)
+polygon = PackedVector2Array(910, 408, 935, 362, 990, 365, 1013, 395, 1041, 399, 1056, 424, 1052, 448, 1059, 474, 1058, 498, 1059, 524, 1039, 544, 990, 563, 915, 547, 919, 474)
+
+[node name="Arm" type="Polygon2D" parent="RightHand2"]
+position = Vector2(-298.482, 0)
+scale = Vector2(1.32444, 1)
+color = Color(0.988235, 0.658824, 0.517647, 1)
+polygon = PackedVector2Array(935, 432, 1868, 178, 1849, 499, 920, 534)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-257, -128, -215, -129, -215, 101, 190, 101, 198, -126, 251, -125, 251, 126, -259, 125)

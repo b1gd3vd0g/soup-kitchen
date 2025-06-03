@@ -1,0 +1,226 @@
+[gd_scene load_steps=8 format=3 uid="uid://c2b36pa5miue"]
+
+[ext_resource type="Script" uid="uid://xv5e3y3gmr05" path="res://src/chopper.gd" id="1_5b2jq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_po7hy"]
+size = Vector2(57, 97)
+
+[sub_resource type="Animation" id="Animation_gv1tu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:y_transform")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/ErrorIndicator:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_vj7ux"]
+resource_name = "alternate"
+length = 2.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.25, 2.46667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-557, 0), Vector2(594, 0), Vector2(-557, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3xt6q"]
+resource_name = "chop"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:y_transform")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0, 358, 0]
+}
+
+[sub_resource type="Animation" id="Animation_mw21s"]
+resource_name = "error"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ErrorGraphic:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.933333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Blade:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:y_transform")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [200, 0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UI/ErrorIndicator:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.933333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.933333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x0y51"]
+_data = {
+&"RESET": SubResource("Animation_gv1tu"),
+&"alternate": SubResource("Animation_vj7ux"),
+&"chop": SubResource("Animation_3xt6q"),
+&"error": SubResource("Animation_mw21s")
+}
+
+[node name="Chopper" type="Area2D"]
+position = Vector2(-557, 0)
+script = ExtResource("1_5b2jq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(560, 161.5)
+shape = SubResource("RectangleShape2D_po7hy")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="ErrorIndicator" type="Line2D" parent="UI"]
+visible = false
+position = Vector2(659, 272)
+points = PackedVector2Array(-189, 181, 56, -52)
+width = 60.0
+default_color = Color(1, 0, 0, 1)
+
+[node name="Line2D" type="Line2D" parent="UI/ErrorIndicator"]
+position = Vector2(-118, -10)
+rotation = -1.56879
+points = PackedVector2Array(-189, 181, 56, -52)
+width = 60.0
+default_color = Color(1, 0, 0, 1)
+
+[node name="Blade" type="Polygon2D" parent="."]
+show_behind_parent = true
+position = Vector2(263.179, 16)
+scale = Vector2(0.580552, 1)
+polygon = PackedVector2Array(184, 69, 873, 69, 781, 180, 601, 221, 306, 222, 185, 203)
+
+[node name="Handle" type="Polygon2D" parent="Blade"]
+show_behind_parent = true
+color = Color(0.427612, 0.272837, 0, 1)
+polygon = PackedVector2Array(182, 71, -114, 71, -137, 115, -103, 165, -54, 165, -5, 137, 182, 140)
+
+[node name="Hand" type="Polygon2D" parent="Blade"]
+show_behind_parent = true
+position = Vector2(48.5619, 10.2928)
+scale = Vector2(0.790941, 0.883978)
+color = Color(0.846494, 0.537289, 0.343616, 1)
+polygon = PackedVector2Array(-43.37, 54, 159.885, 37, 335.58, 56, 347.637, 67, 185.723, 67, 151.272, 112, 177.11, 144, 177.11, 199, 127.158, 218, 73.76, 208, 22.085, 210, -22.7, 195, -64.04, 203, -108.825, 185, -146.72, 100)
+
+[node name="ChopMarker" type="Line2D" parent="Blade"]
+points = PackedVector2Array(511, 26, 511, 247)
+width = 96.93
+default_color = Color(1, 0, 0, 1)
+
+[node name="ErrorGraphic" type="Node2D" parent="."]
+visible = false
+position = Vector2(263.179, 16)
+scale = Vector2(0.620552, 1.0689)
+
+[node name="Blade" type="Polygon2D" parent="ErrorGraphic"]
+position = Vector2(54.8125, 16)
+rotation = -0.311162
+scale = Vector2(0.823139, 0.484187)
+polygon = PackedVector2Array(184, 69, 873, 69, 781, 180, 601, 221, 306, 222, 185, 203)
+
+[node name="Hand" type="Polygon2D" parent="ErrorGraphic/Blade"]
+show_behind_parent = true
+position = Vector2(140.089, 142.772)
+scale = Vector2(0.643212, 0.718872)
+color = Color(0.846494, 0.537289, 0.343616, 1)
+polygon = PackedVector2Array(-243.871, -14.164, -442.905, -237.494, -428.95, -316.225, -211.072, -61.0991, -181.298, -80.9948, -436.799, -412.754, -405.007, -480.383, -142.548, -117.889, -99.1324, -132.299, -283.701, -557.696, -204.271, -506.955, -47.9442, -145.283, -15.6505, -158.005, -117.687, -464.597, -41.6222, -429.763, 44.0086, -153.774, 138.508, -27.9268, 226.417, -138.214, 180.636, -316.28, 295.234, -209.12, 328.268, -59.8681, 246.287, 219.683, 135.293, 235.494, 72.8318, 346.347, -248.769, 53.5507)
+
+[node name="Handle" type="Polygon2D" parent="ErrorGraphic/Blade"]
+color = Color(0.427612, 0.272837, 0, 1)
+polygon = PackedVector2Array(182, 71, -114, 71, -137, 115, -103, 165, -54, 165, -5, 137, 182, 140)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_x0y51")
+}
+autoplay = "alternate"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
