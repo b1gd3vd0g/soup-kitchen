@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ch345cq1e3dnp"
-path="res://.godot/imported/Chef W1.png-4ede76e215ffeba416f8cc0c80e39c73.ctex"
+uid="uid://kmfsqkrdl8dl"
+path="res://.godot/imported/counters.png-66d3807c790cc0cb40238637e4d5abc0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Chef W1.png"
-dest_files=["res://.godot/imported/Chef W1.png-4ede76e215ffeba416f8cc0c80e39c73.ctex"]
+source_file="res://sprites/counters.png"
+dest_files=["res://.godot/imported/counters.png-66d3807c790cc0cb40238637e4d5abc0.ctex"]
 
 [params]
 
