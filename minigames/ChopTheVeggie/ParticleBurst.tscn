@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://h7iybtjdaghh"]
 
-[ext_resource type="Script" uid="uid://dc433u4ut212" path="res://src/particle_burst.gd" id="1_r4dgj"]
+[ext_resource type="Script" uid="uid://dc433u4ut212" path="res://minigames/ChopTheVeggie/particle_burst.gd" id="1_r4dgj"]
 
 [node name="ParticleBurst" type="CPUParticles2D"]
 emitting = false

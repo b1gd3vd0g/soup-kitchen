@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://3rgsyf47bqdc"]
+
+[ext_resource type="Texture2D" uid="uid://mh2erjtw2ucl" path="res://assets/ingredients0.png" id="1_kpilx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yjdog"]
+radius = 22.0227
+
+[node name="Ingredient" type="RigidBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_yjdog")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_kpilx")

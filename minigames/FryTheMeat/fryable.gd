@@ -1,5 +1,8 @@
 class_name Fryable extends RigidBody2D
 
+##A piece of fryable meat. Will lerp to brown everytime it's cooked,
+##and then send out a signal once it's fully cooked before disappearing.
+
 signal fryable_cooked
 
 @export var max_cooked = 20.0
