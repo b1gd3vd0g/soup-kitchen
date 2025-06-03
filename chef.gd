@@ -50,5 +50,6 @@ func _process(delta: float) -> void:
 		$Sprite.stop()
 	
 	# Actually move the guy.
-	position += chef_velocity * delta
-	position = position.clamp(bound_a, bound_b)
+	move_and_collide(chef_velocity * delta)
+	#position += chef_velocity * delta
+	#position = position.clamp(bound_a, bound_b)
