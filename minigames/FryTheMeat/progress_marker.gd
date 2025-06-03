@@ -1,5 +1,7 @@
 class_name ProgressMarker extends Area2D
 
+##Progress markers. These are used to guide the players pan to simulate the motions
+##of stir frying meet.
 signal progress_marker_hit(id: int)
 
 @export var id: int

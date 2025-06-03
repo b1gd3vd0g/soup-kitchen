@@ -3,9 +3,11 @@
 [ext_resource type="Script" uid="uid://b1pijw8wbudia" path="res://minigames/CatchTheIngredients/soup_pot.gd" id="1_tt100"]
 
 [node name="SoupPot" type="CharacterBody2D"]
+collision_mask = 0
 script = ExtResource("1_tt100")
 
 [node name="PotFront" type="Polygon2D" parent="."]
+z_index = 2
 position = Vector2(-643, -482)
 color = Color(0.716296, 0.716296, 0.716296, 1)
 polygon = PackedVector2Array(382, 357, 548, 383, 714, 383, 899, 357, 899, 612, 382, 612)

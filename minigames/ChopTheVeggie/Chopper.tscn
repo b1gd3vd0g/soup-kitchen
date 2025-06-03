@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://c2b36pa5miue"]
 
-[ext_resource type="Script" uid="uid://xv5e3y3gmr05" path="res://src/chopper.gd" id="1_5b2jq"]
+[ext_resource type="Script" uid="uid://xv5e3y3gmr05" path="res://minigames/ChopTheVeggie/chopper.gd" id="1_5b2jq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_po7hy"]
 size = Vector2(57, 97)

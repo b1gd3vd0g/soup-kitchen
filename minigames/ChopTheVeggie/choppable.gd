@@ -1,11 +1,14 @@
 extends Node2D
 
+#A vegetable which can be chopped. Used in the ChopTheVegetables minigame.
+
 var chop_lines = 0
 var chopped = 0
 
 signal fully_chopped
 
-# Called when the node enters the scene tree for the first time.
+##Collects all chop markers and connects them to validators.
+##Validators indicate whether a chop is succesful or not.
 func _ready() -> void:
 	var children = get_children()
 	for child in children:
@@ -22,6 +25,7 @@ func set_cut_invalid(area):
 	if area is Chopper:
 		area.cut_valid = false
 
+##Destroys a piece of the vegetable. More specifically, it destroys a chop marker.
 func _on_destroybox_area_entered(area):
 	if(area is Chopper):
 		chopped += 1

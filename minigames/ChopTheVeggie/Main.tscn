@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dw1p4iytjnmga"]
 
 [ext_resource type="PackedScene" uid="uid://c2b36pa5miue" path="res://minigames/ChopTheVeggie/Chopper.tscn" id="1_pnux8"]
-[ext_resource type="Script" uid="uid://r6fv47nssbh4" path="res://src/chop_game.gd" id="1_s4bpb"]
+[ext_resource type="Script" uid="uid://r6fv47nssbh4" path="res://minigames/ChopTheVeggie/chop_game.gd" id="1_s4bpb"]
 [ext_resource type="PackedScene" uid="uid://cfhxe5pl71duj" path="res://minigames/ChopTheVeggie/Carrot.tscn" id="2_s4bpb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5hw5i"]

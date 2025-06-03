@@ -1,9 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://iafyqweu5qvw"]
+[gd_scene load_steps=5 format=3 uid="uid://iafyqweu5qvw"]
 
 [ext_resource type="Script" uid="uid://b60ddswkduywt" path="res://minigames/CatchTheIngredients/ingredient_spawner.gd" id="1_pmpfw"]
+[ext_resource type="Script" uid="uid://8ivn2646fbmp" path="res://minigames/resources/ingredient.gd" id="2_7hvca"]
+
+[sub_resource type="Resource" id="Resource_c6g0i"]
+script = ExtResource("2_7hvca")
+name = "Meat"
+filepath = "res://minigames/CatchTheIngredients/MeatIngredient.tscn"
+quantity = 2
+metadata/_custom_type_script = "uid://8ivn2646fbmp"
+
+[sub_resource type="Resource" id="Resource_338vq"]
+script = ExtResource("2_7hvca")
+name = "Veggie"
+filepath = "res://minigames/CatchTheIngredients/VegetableIngredient.tscn"
+quantity = 3
+metadata/_custom_type_script = "uid://8ivn2646fbmp"
 
 [node name="IngredientSpawner" type="Marker2D"]
 script = ExtResource("1_pmpfw")
+ingredients = Array[ExtResource("2_7hvca")]([SubResource("Resource_c6g0i"), SubResource("Resource_338vq")])
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true

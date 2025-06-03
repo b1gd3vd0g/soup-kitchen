@@ -1,5 +1,8 @@
 extends Line2D
 
+##Progress marker route. These are used to guide the players pan to simulate the motions
+##of stir frying meet.
+
 signal progress_completed
 
 var forward = true
@@ -7,7 +10,6 @@ var forward = true
 var progress_markers
 var num_markers
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#Collect and sort progress markers into an array
 	progress_markers = get_children()
@@ -24,7 +26,7 @@ func progress_marker_hit(id):
 	if progress_markers[id].active == true:
 		print("Progress Marker Hit! [" + str(id) + "]")
 		progress_markers[id].set_inactive()
-		#Implement Loop
+		#Implement Loop behaviour for markers in route.
 		if id >= num_markers - 1:
 			id = -1
 			progress_completed.emit()
