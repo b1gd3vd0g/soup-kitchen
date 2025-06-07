@@ -1,8 +1,7 @@
-extends Node2D
+extends Minigame
 
 const MAX_FRYABLES = 4
 var fryables_in_scene = 0
-var time_left = 60
 
 var score = 0
 
@@ -19,6 +18,7 @@ func spawn_fryable():
 	
 	instance.fryable_cooked.connect(spawn_fryable)
 	instance.fryable_cooked.connect(update_score_counter)
+	instance.fryable_cooked.connect(update_ingredients_tracker("Meat", 1))
 	
 	fryables_in_scene = fryables_in_scene + 1
 
@@ -31,8 +31,3 @@ func _on_fryable_loss_area_body_entered(body: Node2D) -> void:
 	if body is Fryable:
 		body.queue_free()
 		spawn_fryable()
-
-
-func _on_timer_timeout() -> void:
-	time_left = time_left - 1
-	$TimeRemaining.text = str(time_left)

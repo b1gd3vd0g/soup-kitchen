@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://iafyqweu5qvw"]
 
 [ext_resource type="Script" uid="uid://b60ddswkduywt" path="res://minigames/CatchTheIngredients/ingredient_spawner.gd" id="1_pmpfw"]
-[ext_resource type="Script" uid="uid://8ivn2646fbmp" path="res://minigames/resources/ingredient.gd" id="2_7hvca"]
+[ext_resource type="Script" uid="uid://8ivn2646fbmp" path="res://minigames/resources/ingredient_record.gd" id="2_7hvca"]
 
 [sub_resource type="Resource" id="Resource_c6g0i"]
 script = ExtResource("2_7hvca")

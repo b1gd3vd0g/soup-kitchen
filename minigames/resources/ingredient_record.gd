@@ -1,5 +1,5 @@
 extends Resource
-class_name Ingredient 
+class_name IngredientRecord
 
 @export var name: String
 @export var filepath: String
