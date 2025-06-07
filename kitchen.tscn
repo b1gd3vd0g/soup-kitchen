@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dqqe1tqet0htr"]
+[gd_scene load_steps=7 format=3 uid="uid://dqqe1tqet0htr"]
 
 [ext_resource type="Script" uid="uid://coqfwqe2ye1sx" path="res://kitchen.gd" id="1_ipk1y"]
 [ext_resource type="PackedScene" uid="uid://dew3xfc3qwsiy" path="res://chef.tscn" id="1_vloss"]
 [ext_resource type="PackedScene" uid="uid://cntvmfbnvlxjk" path="res://minigame_window.tscn" id="3_xsyy8"]
+[ext_resource type="PackedScene" uid="uid://b31ack3wswel8" path="res://counter.tscn" id="4_kdutl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ipk1y"]
 size = Vector2(1920, 1080)
@@ -53,6 +54,11 @@ offset_right = 1864.0
 offset_bottom = 1014.0
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="Counter" parent="." instance=ExtResource("4_kdutl")]
+position = Vector2(624, 600)
+type = 1
+filepath = "res://minigames/CatchTheIngredients"
 
 [connection signal="body_entered" from="InteractableZone" to="." method="_on_interactable_zone_body_entered"]
 [connection signal="body_exited" from="InteractableZone" to="." method="_on_interactable_zone_body_exited"]
