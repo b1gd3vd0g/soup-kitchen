@@ -1,14 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://3rgsyf47bqdc"]
+[gd_scene load_steps=5 format=3 uid="uid://3rgsyf47bqdc"]
 
 [ext_resource type="Texture2D" uid="uid://mh2erjtw2ucl" path="res://assets/ingredients0.png" id="1_kpilx"]
+[ext_resource type="PackedScene" uid="uid://8bgv2y6uegv1" path="res://minigames/CatchTheIngredients/Ingredient.tscn" id="1_vmi10"]
+[ext_resource type="Script" uid="uid://8ivn2646fbmp" path="res://minigames/resources/ingredient_record.gd" id="2_cyvdd"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_yjdog"]
-radius = 22.0227
+[sub_resource type="Resource" id="Resource_7if7c"]
+script = ExtResource("2_cyvdd")
+name = "Veggie"
+filepath = "res://minigames/CatchTheIngredients/VegetableIngredient.tscn"
+quantity = 1
+metadata/_custom_type_script = "uid://8ivn2646fbmp"
 
-[node name="Ingredient" type="RigidBody2D"]
+[node name="Ingredient" instance=ExtResource("1_vmi10")]
+record = SubResource("Resource_7if7c")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_yjdog")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("1_kpilx")

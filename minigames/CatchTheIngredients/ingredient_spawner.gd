@@ -1,7 +1,7 @@
 class_name IngredientSpawner extends Marker2D
 
 ##This is for test purposes only, delete soon
-@export var ingredients: Array[Ingredient]
+@export var ingredients: Array[IngredientRecord]
 
 func _ready() -> void:
 	for ingredient in ingredients:
@@ -14,7 +14,7 @@ func _ready() -> void:
 ##Weighted RNG algorithm.
 ##Detailed explanation found on youtube and provided by Gwizz
 ##https://www.youtube.com/watch?v=sHHIcDG7Um0
-func roll() -> Ingredient:
+func roll() -> IngredientRecord:
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 	var weighted_sum = 0

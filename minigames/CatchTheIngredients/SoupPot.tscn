@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cskwqr63a2jff"]
+[gd_scene load_steps=4 format=3 uid="uid://cskwqr63a2jff"]
 
 [ext_resource type="Script" uid="uid://b1pijw8wbudia" path="res://minigames/CatchTheIngredients/soup_pot.gd" id="1_tt100"]
+[ext_resource type="PackedScene" uid="uid://dxdpftifgjtm3" path="res://minigames/CatchTheIngredients/Recipe.tscn" id="2_4lcu2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tt100"]
+size = Vector2(455, 142)
 
 [node name="SoupPot" type="CharacterBody2D"]
 collision_mask = 0
@@ -40,5 +44,23 @@ scale = Vector2(1.32444, 1)
 color = Color(0.988235, 0.658824, 0.517647, 1)
 polygon = PackedVector2Array(935, 432, 1868, 178, 1849, 499, 920, 534)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-257, -128, -215, -129, -215, 101, 190, 101, 198, -126, 251, -125, 251, 126, -259, 125)
+[node name="CollectionZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectionZone"]
+position = Vector2(-6.5, 22)
+shape = SubResource("RectangleShape2D_tt100")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Recipe" parent="CanvasLayer" instance=ExtResource("2_4lcu2")]
+position = Vector2(332, 211)
+scale = Vector2(2.8761, 2.5815)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-257, -128, -192, -129, -215, 101, 190, 101, 168, -125, 251, -125, 251, 126, -259, 125)
+
+[connection signal="body_entered" from="CollectionZone" to="." method="_on_collection_zone_body_entered"]
+[connection signal="recipe_completed" from="CanvasLayer/Recipe" to="." method="_on_recipe_recipe_completed"]

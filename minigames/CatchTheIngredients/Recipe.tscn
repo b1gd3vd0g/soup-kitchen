@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxdpftifgjtm3"]
+
+[ext_resource type="Texture2D" uid="uid://mh2erjtw2ucl" path="res://assets/ingredients0.png" id="1_qcuwq"]
+[ext_resource type="Script" uid="uid://b45jd16jwarxt" path="res://minigames/CatchTheIngredients/recipe.gd" id="1_syuvc"]
+[ext_resource type="Texture2D" uid="uid://dxfhg35jn3led" path="res://assets/ingredients1.png" id="2_syuvc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lkmqr"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="Recipe" type="Node2D"]
+script = ExtResource("1_syuvc")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_left = -94.0
+offset_top = -23.0
+offset_right = 86.0
+offset_bottom = 25.0
+
+[node name="VeggieLabel" type="Label" parent="Background"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 12.0
+offset_right = 83.0
+offset_bottom = 35.0
+text = "0/16"
+label_settings = SubResource("LabelSettings_lkmqr")
+
+[node name="MeatLabel" type="Label" parent="Background"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 12.0
+offset_right = 175.0
+offset_bottom = 35.0
+text = "0/16"
+label_settings = SubResource("LabelSettings_lkmqr")
+
+[node name="VeggieSprite" type="Sprite2D" parent="Background"]
+position = Vector2(25, 24)
+scale = Vector2(0.355, 0.355)
+texture = ExtResource("1_qcuwq")
+
+[node name="MeatSprite" type="Sprite2D" parent="Background"]
+position = Vector2(110, 26)
+scale = Vector2(0.43, 0.43)
+texture = ExtResource("2_syuvc")

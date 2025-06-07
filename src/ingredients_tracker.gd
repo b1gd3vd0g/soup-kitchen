@@ -1,10 +1,11 @@
 extends Node
 
-@export var ingredients_prepared: Array[Ingredient]
+@export var ingredients_prepared: Array[IngredientRecord]
+@export var soup_prepared: IngredientRecord = IngredientRecord.new("Soup", "N/A", 0)
 
 ##Adds ingredient and sorts by quantity. The ingredients_prepared array
 ##needs to remain sorted descending so it can be used in weighted RNG machines.
-func add_ingredient(new_ingredient: Ingredient):
+func add_ingredient(new_ingredient: IngredientRecord):
 	#Add quantity to existing instance, if it exists
 	var exists = false
 	

@@ -21,9 +21,9 @@ func _physics_process(_delta: float) -> void:
 	#First we begin calculating a velocity, starting at zero.
 	var velocity = Vector2.ZERO
 	#We then check what input's been called, either left or right, and add that to our velocity
-	if Input.is_action_pressed("right"):
+	if Input.is_action_pressed("move_right"):
 		velocity += Vector2.RIGHT
-	if Input.is_action_pressed("left"):
+	if Input.is_action_pressed("move_left"):
 		velocity += Vector2.LEFT
 	#Before sending that new velocity out, we may want to have some control over how fast our pot moves.
 	#To do this, we are going to normalize our velocity vector and then multiply it by our speed scalar,
@@ -33,3 +33,15 @@ func _physics_process(_delta: float) -> void:
 	#Now, we send our new velocity out to the physics engine. We let the physics engine handle 
 	#the job of detecting collisions and tings.
 	move_and_collide(velocity)
+
+func _on_collection_zone_body_entered(body: Node2D) -> void:
+	if body is Ingredient:
+		if body.record.name == "Veggie":
+			$CanvasLayer/Recipe.collect_veggie()
+		if body.record.name == "Meat":
+			$CanvasLayer/Recipe.collect_meat()
+		body.queue_free()
+	
+
+func _on_recipe_recipe_completed() -> void:
+	IngredientsTracker.soup_prepared.quantity += 1
