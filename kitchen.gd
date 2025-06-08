@@ -10,18 +10,12 @@ func activate(fr: bool) -> void:
 	$Chef.listen(fr)
 
 func interact() -> void:
-	#if $Chef.listening and not $Chef/ActionIcon.hidden:
-		$MinigameWindow.show()
+	pass
 
 func _ready() -> void:
 	$Shape.shape.size = get_viewport_rect().size
 	$Chef.set_bounds($Shape.shape.size)
 	$MinigameWindow.hide()
-
-func _process(_delta: float) -> void:
-	if Input.is_action_pressed("interact"):
-		print("interacted")
-		interact()
 
 ## This function makes it so that the "interact" input will work.
 func _on_interactable_zone_body_entered(body: Node2D) -> void:

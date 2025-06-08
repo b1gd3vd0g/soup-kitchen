@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b31ack3wswel8"]
+[gd_scene load_steps=11 format=3 uid="uid://b31ack3wswel8"]
 
 [ext_resource type="Script" uid="uid://df7rti8svub73" path="res://counter.gd" id="1_xsn3b"]
 [ext_resource type="Texture2D" uid="uid://kmfsqkrdl8dl" path="res://sprites/counters.png" id="2_br5gr"]
@@ -22,11 +22,7 @@ region = Rect2(88, 0, 88, 168)
 atlas = ExtResource("2_br5gr")
 region = Rect2(0, 0, 88, 168)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rr7rd"]
-atlas = ExtResource("2_br5gr")
-region = Rect2(0, 168, 88, 168)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6r0oo"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsn3b"]
 atlas = ExtResource("2_br5gr")
 region = Rect2(88, 168, 88, 168)
 
@@ -66,18 +62,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rr7rd")
+"texture": SubResource("AtlasTexture_xsn3b")
 }],
 "loop": true,
-"name": &"stove_off",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6r0oo")
-}],
-"loop": true,
-"name": &"stove_on",
+"name": &"stove",
 "speed": 5.0
 }]
 

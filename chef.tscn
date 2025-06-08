@@ -163,10 +163,9 @@ metadata/_edit_group_ = true
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_fio5r")
-animation = &"walk_up"
+animation = &"walk_left"
 
 [node name="BoundingBox" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 0)
 shape = SubResource("RectangleShape2D_j8bwy")
 
 [node name="ActionIcon" type="AnimatedSprite2D" parent="."]

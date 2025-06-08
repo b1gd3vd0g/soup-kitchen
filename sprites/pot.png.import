@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cg3nhhylme0ij"
-path="res://.godot/imported/istockphoto-1359767310-612x612.jpg-b005c17ae3e72a2decda2e46dd5aed21.ctex"
+uid="uid://dgjsgiiblmm3i"
+path="res://.godot/imported/pot.png-854b6c9909055db66a9c2eef16cf8bc1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/istockphoto-1359767310-612x612.jpg"
-dest_files=["res://.godot/imported/istockphoto-1359767310-612x612.jpg-b005c17ae3e72a2decda2e46dd5aed21.ctex"]
+source_file="res://sprites/pot.png"
+dest_files=["res://.godot/imported/pot.png-854b6c9909055db66a9c2eef16cf8bc1.ctex"]
 
 [params]
 

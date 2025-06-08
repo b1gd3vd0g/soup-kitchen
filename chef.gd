@@ -51,5 +51,3 @@ func _process(delta: float) -> void:
 	
 	# Actually move the guy.
 	move_and_collide(chef_velocity * delta)
-	#position += chef_velocity * delta
-	#position = position.clamp(bound_a, bound_b)
